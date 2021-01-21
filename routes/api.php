@@ -30,7 +30,7 @@ Route::apiResource('/products' , ProductController::class);
 
 Route::prefix('admin')->group(function () {
   
-        Route::apiResource('/{product}/products' , ReviewController::class);
+        Route::apiResource('/products' , ReviewController::class);
 
 
         // Matches The "/admin/product" URL
