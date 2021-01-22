@@ -25,7 +25,24 @@ class ProductRequest extends FormRequest
     {
         return [
             //
-            
+            "name" => 'required|max:255|unique:products',
+            "description"=>'required',
+            'price'=>'required|max:10',
+            "stock"=>"required|max:6",
+            "discount"=>"required|max:2",
+        ];
+    }
+
+
+
+    public function messages()
+    {
+        return [
+            'name.required'=>'Name is required',
+            'description.required'=>'Detail is required',
+            'price.required'=>'Price is required',
+            'stock.required'=>'Stock is required',
+            'discount'=>'Discount is required'
         ];
     }
 }
