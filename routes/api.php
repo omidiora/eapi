@@ -28,10 +28,7 @@ Route::middleware('auth:api')->get('/user', function (Request $request) {
 Route::apiResource('/products' , ProductController::class);
 
 
-Route::prefix('admin')->group(function () {
-  
-        Route::apiResource('/products' , ReviewController::class);
-
-
-        // Matches The "/admin/product" URL
+Route::apiResource('/products','ProductController');
+Route::group(['prefix'=>'products'],function(){
+	Route::apiResource('/{product}/reviews',ReviewController::class);
 });

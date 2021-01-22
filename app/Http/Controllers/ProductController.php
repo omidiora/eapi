@@ -8,15 +8,21 @@ use App\Http\Resources\Product\ProductResource;
 
 class ProductController extends Controller
 {
-    /**
-     * Display a listing of the resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
+
+    public function __construct(){
+
+       $tihs->middleware('auth:api')->except('index' , 'show');
+    }
+    
+    // / **
+    //  * Display a listing of the resource.
+    //  *
+    //  * @return \Illuminate\Http\Response
+    //  */
     public function index()
     {
         //
-        return  Product::all();
+        return   ProductResource::collection(Product::all());
     }
 
     /**
